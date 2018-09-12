@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Django level two</title>
+    <link rel="stylesheet" href="{% static "css/mystyles.css" %}"/>
+  </head>
+  <body>
+    <h1>Hi welcome to django lv Two</h1>
+    <h2> These are the records </h2>
+    <div class="djangoTwo">
+      {% if access_record %}
+        <table>
+          <thead>
+            <th>Site name</th>
+            <th>Data Acessed</th>
+          </thead>
+
+          {% for acc in access_record %}
+          <tr>
+            <td> {{acc.name}} </td>
+            <td> {{acc.date}} </td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p> NO access record found </p>
+        {% endif %}
+    </div>
+  </body>
+</html>
